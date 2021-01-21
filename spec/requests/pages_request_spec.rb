@@ -5,6 +5,7 @@ RSpec.describe "Pages", type: :request do
         before(:each) do 
             get '/'
         end 
+        
         it "should respond with a status of 200" do 
             expect(response).to have_http_status(:success)
         end
