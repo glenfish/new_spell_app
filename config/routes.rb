@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   get "/spells", to: "spells#index"
   post "/spells", to: "spells#create"
   get "/spells/:id", to: "spells#show"
+  put "/spells/:id", to: "spells#update"
 
 end

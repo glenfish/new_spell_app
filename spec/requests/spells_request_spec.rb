@@ -33,8 +33,26 @@ RSpec.describe "Spells", type: :request do
             expect(response).to have_http_status(:created)
             expect(response.content_type).to eq("application/json; charset=utf-8")
             expect(response.body).to include("Turns you invisible")
-         end 
+         end
+         
 
     end
+
+    describe "put /spells/:id" do 
+        it "should respond with json when given a valid id" do 
+            put '/spells/1', :params => {name:"Teleport", description: "You end up somewhere else", type: "transportation"}
+            expect(response).to have_http_status(200)
+            expect(response.content_type).to eq("application/json; charset=utf-8")
+            expect(response.body).to include("You end up somewhere else")
+        end
+        
+        it "should respond with 404 when given invalid id" do 
+            put '/spells/99', :params => {name:"Teleport", description: "You end up somewhere else", type: "transportation"}
+            expect(response).to have_http_status(404)
+            expect(response.body).to include("Could not find spell")
+        end 
+    
+    
+    end 
 
 end

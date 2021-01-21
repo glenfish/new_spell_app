@@ -6,20 +6,14 @@ class SpellsController < ApplicationController
         {id:2, name: "Magic Missle", description: "A missle of magic", type: "force"},
         {id:3, name: "Avada Kedava", description: "It kills everyone except harry potter", type: "death"}   
     ]
+    before_action :set_spell, only: [:show, :update]
     
     def index 
         render json: @@spells
     end
     
     def show
-        id = params[:id].to_i
-        @spell = @@spells.find {|spell| spell[:id] == id}
-        if @spell
-            render json: @spell, status: 200
-        else
-            render json: {error: "Could not find spell"}, status: 404
-        end
-
+       render json: @spell
     end
     
     def create
@@ -32,5 +26,28 @@ class SpellsController < ApplicationController
          created_spell = @@spells.push(spell).last
 
         render json: created_spell, status: 201
+    end
+    
+    def update
+         updated_spell = {
+             id: @spell[:id],
+             name: params[:name],
+             description: params[:description],
+             type: params[:type]
+         }
+         @@spells[@index] = updated_spell
+        render json: updated_spell, status: 200
+    end 
+
+    private 
+
+    def set_spell
+        id = params[:id].to_i
+        @index = @@spells.index {|spell| spell[:id] == id}
+        if !@index
+            render json: {error: "Could not find spell"}, status: 404
+        else
+            @spell = @@spells[@index]
+        end 
     end 
 end
