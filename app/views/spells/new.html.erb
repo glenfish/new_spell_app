@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1>Add a new spell </h1>
 <form action="<%= spells_create_path %>" method="POST">
  <%# <input type="hidden" name="malicious code" value="corrupt database"> %>
@@ -16,3 +17,24 @@
 
     <input type="submit" name="Create Spell">
 </form>
+=======
+<main id="pages-new">
+    <h1> Create a New Spell </h1>
+    <form action="<%=spells_path%>" method="POST">
+    <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
+        <div class="field">
+            <label>Name</label>
+            <input type="text" name="name" />
+        </div>
+        <div class="field">
+        <label>Type</label>
+        <input type="text" name="type" />
+        </div>
+        <div class="field">
+            <label>Description</label>
+            <textarea name="description"> </textarea>
+        </div>
+        <input type="submit" value="Create a Spell">
+    </form>
+</main>
+>>>>>>> e26a94fc549c543be5cb1fd442975e3f8d642cb5

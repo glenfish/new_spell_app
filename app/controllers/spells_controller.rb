@@ -31,6 +31,10 @@ class SpellsController < ApplicationController
     #    render json: @spell
     end
     
+    def new 
+
+    end 
+    
     def create
         # puts "params in create method----- #{params}"
         # spell = {
