@@ -50,8 +50,8 @@ class SpellsController < ApplicationController
         # redirect_to spells_path
 
         # store to db
-        puts "params in create------ #{params}"
-        @spell = Spell.create(name: params[:name], description: params[:description], category: params[:category])
+        puts "params in create------ #{params[:spell]}"
+        @spell = Spell.create(params[:spell])
     end
     
     def update
