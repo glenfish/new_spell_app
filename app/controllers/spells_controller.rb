@@ -6,10 +6,10 @@ class SpellsController < ApplicationController
         {id:2, name: "Magic Missle", description: "A missle of magic", type: "force"},
         {id:3, name: "Avada Kedava", description: "It kills everyone except harry potter", type: "death"}   
     ]
-    before_action :set_spell, only: [:show, :update]
+    before_action :set_spell, only: [:show, :update, :destroy]
     
-    def index 
-        render json: @@spells
+    def index
+        render :index, locals: {spells: @@spells} 
     end
     
     def show
@@ -37,7 +37,12 @@ class SpellsController < ApplicationController
          }
          @@spells[@index] = updated_spell
         render json: updated_spell, status: 200
-    end 
+    end
+    
+    def destroy 
+        deleted_spell = @@spells.delete_at(@index)
+        render json: @@spells, status: 200
+    end
 
     private 
 

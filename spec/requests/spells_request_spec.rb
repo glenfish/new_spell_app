@@ -8,8 +8,8 @@ RSpec.describe "Spells", type: :request do
         it "should respond with 200 success" do 
             expect(response).to have_http_status(200)
         end 
-        it "should respond with json" do 
-            expect(response.content_type).to eq("application/json; charset=utf-8") 
+        it "should render index page" do 
+            expect(response).to render_template("index")
         end
     end
     
@@ -50,7 +50,22 @@ RSpec.describe "Spells", type: :request do
             put '/spells/99', :params => {name:"Teleport", description: "You end up somewhere else", type: "transportation"}
             expect(response).to have_http_status(404)
             expect(response.body).to include("Could not find spell")
-        end 
+        end
+        
+        end
+        
+        describe "delete /spells/:id" do 
+            it "should respond with json when given a valid id" do 
+                delete '/spells/1'
+                expect(response).to have_http_status(200)
+                expect(response.content_type).to eq("application/json; charset=utf-8")
+            end
+            
+            it "should respond with 404 when given invalid id" do 
+                delete '/spells/99'
+                expect(response).to have_http_status(404)
+                expect(response.body).to include("Could not find spell")
+            end 
     
     
     end 
