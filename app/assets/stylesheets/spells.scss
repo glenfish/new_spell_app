@@ -37,7 +37,6 @@
         }
     }
     .fire {
-
         border-top:#e25822 solid 5px;
     }
     .force{
@@ -47,4 +46,16 @@
         border-top:#402b59  solid 5px;
     }
 
+}
+
+#pages-show {
+    .fire {
+        color:#e25822;
+    }
+    .force{
+        color:#1d6ee2;
+    }
+    .death{
+        color:#402b59;
+    }
 }
