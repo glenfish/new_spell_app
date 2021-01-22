@@ -1,0 +1,7 @@
+<h1> Show Spells </h1>
+
+<% @spells.each do |spell|%>
+    <p><%= spell[:name]%> </p>
+    <p><%= spell[:description]%></p>
+    <p><%= spell[:type]%></p>
+<% end %>

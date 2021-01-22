@@ -1,0 +1,19 @@
+<h1>Edit spell </h1>
+<form action="<%= spell_update_path(@spell[:id]) %>" method="POST">
+ <input type="hidden" name="_method" value="put">
+ <input type="hidden" name="malicious code" value="corrupt database">
+    <p>
+        <label> Name</label>
+        <input type="text" name="name" value="<%= @spell[:name] %>">
+     </p>
+     <p>
+        <label> Descriptiom</label>
+        <input type="text" name="description" value="<%= @spell[:description] %>">
+     </p>
+     <p>
+        <label> Type</label>
+        <input type="text" name="type" value="<%= @spell[:type] %>">
+     </p>
+
+    <input type="submit" name="Update Spell">
+</form>
