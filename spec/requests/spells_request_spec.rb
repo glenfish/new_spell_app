@@ -55,10 +55,10 @@ RSpec.describe "Spells", type: :request do
         end
         
         describe "delete /spells/:id" do 
-            it "should respond with json when given a valid id" do 
+            it "should delete and redirect when given a valid id" do 
                 delete '/spells/1'
-                expect(response).to have_http_status(200)
-                expect(response.content_type).to eq("application/json; charset=utf-8")
+                expect(response).to redirect_to("/spells")
+                
             end
             
             it "should respond with 404 when given invalid id" do 
