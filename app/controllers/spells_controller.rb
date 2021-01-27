@@ -6,6 +6,7 @@ class SpellsController < ApplicationController
             {id:2, name: "Magic Missle", description: "A missle of magic", category: "force"},
             {id:3, name: "Avada Kedava", description: "It kills everyone except harry potter", category: "death"}   
         ]
+
         before_action :set_spell, only: [:show, :update, :destroy, :edit]
         
         def index
