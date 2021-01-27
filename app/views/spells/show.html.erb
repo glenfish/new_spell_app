@@ -1,17 +1,11 @@
-<<<<<<< HEAD
-<h1> Show Spell </h1>
-<p><%= @spell[:name] %></p>
-<p><%= @spell[:description] %></p>
-<p><%= @spell[:type] %></p>
-=======
 <main id="pages-show">
-    <h1 class="<%=@spell[:type]%>"><%=@spell[:name]%></h1>
+    <h1 class="<%=@spell[:category]%>"><%=@spell[:name]%></h1>
     <section class="spell-content"> 
-        <h2>Type: <%=@spell[:type].capitalize%></h2>
+        <h2>Type: <%=@spell[:category].capitalize%></h2>
         <p><%=@spell[:description]%> </p>
         <div class="button-container"> 
             <%= button_to "Delete Spell", {action: "destroy", id: @spell[:id]}, {method: :delete, class: "btn danger", data: {confirm: "Are you sure?"}}%>
+            <%= button_to "Update Spell", {action: "edit", id: @spell[:id]}, {method: :get, class: "btn warning"}%>
         </div>
     </section>
 </main>
->>>>>>> e26a94fc549c543be5cb1fd442975e3f8d642cb5

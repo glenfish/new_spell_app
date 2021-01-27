@@ -82,13 +82,15 @@
         color: #3a9149
     }
 
+
+
     .btn {
         background-color: white;
         border: 1px solid black;
         border-radius: 5px;
         color: black;
-        padding: 12px 20px;
-        font-size: 15px;
+        padding: 10px 20px;
+        font-size: 12px;
         transition: all 0.25s;
         cursor: pointer;
     }
@@ -99,17 +101,27 @@
             color: white;
             background-color: red;
         }
+        
+    }
+    .warning {
+        border-color: orange; 
+        color: orange;
+        &:hover{
+            color: white;
+            background-color: orange;
+        }
+        
     }
 
 }
 
-#pages-new {
-    form {
+
+form {
         width: 50%;
     }
-    .field {
+.field {
         display: flex;
         flex-direction: column;
         margin-bottom: 1rem;
     }
-}
+
