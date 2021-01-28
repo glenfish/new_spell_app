@@ -4,15 +4,15 @@
     <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
         <div class="field">
             <label>Name</label>
-            <input type="text" name="name" />
+            <input type="text" name="spells[name]" />
         </div>
         <div class="field">
         <label>Type</label>
-        <input type="text" name="category" />
+        <input type="text" name="spells[category]" />
         </div>
         <div class="field">
             <label>Description</label>
-            <textarea name="description"> </textarea>
+            <textarea name="spells[description]"> </textarea>
         </div>
         <input type="submit" value="Create a Spell">
     </form>

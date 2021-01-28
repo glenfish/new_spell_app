@@ -4,7 +4,7 @@
         <h2>Type: <%=@spell.category.capitalize%></h2>
         <p><%=@spell.description%> </p>
         <div class="button-container"> 
-            <%= button_to "Delete Spell", {action: "destroy", id: @spell.id}, {method: :delete, class: "btn danger", data: {confirm: "Are you sure?"}}%>
+            <%= button_to "Delete Spell", {action: "destroy", id: @spell.id}, {method: :delete, class: "btn danger", data: {confirm: "Are you for real?"}}%>
             <%= button_to "Update Spell", {action: "edit", id: @spell.id}, {method: :get, class: "btn warning"}%>
         </div>
     </section>

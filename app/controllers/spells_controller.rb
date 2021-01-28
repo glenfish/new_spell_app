@@ -28,17 +28,30 @@ class SpellsController < ApplicationController
         
         def create
             @spell = Spell.create(spell_params)
-    
-            redirect_to spells_path
+            if @spell.save
+                flash[:created] = "New Spell Created!"
+                redirect_to spells_path
+            else
+                flash[:error] = @spell.errors.full_messages.to_sentence
+                # render 'new'
+                redirect_to spell_new_path
+                # render :new
+            end
         end
         
         def update
              @spell.update(spell_params)
-             redirect_to spells_path
+             if @spell.save
+                flash[:updated] = "New Spell Updated!"
+                redirect_to spells_path
+             else
+                flash.now[:error] = @spell.errors.full_messages.to_sentence
+            end
+             
         end
         
         def destroy 
-            @@spells.delete_at(@index)
+            @spell.destroy
             redirect_to spells_path
             
         end
@@ -50,7 +63,7 @@ class SpellsController < ApplicationController
         end
 
         def spell_params
-            params.require(:spells).permit(:name, :category, :description, :id)
+            params.require(:spells).permit(:name, :category, :description)
         end
 end  
  
