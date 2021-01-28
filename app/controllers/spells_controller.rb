@@ -15,7 +15,7 @@ class SpellsController < ApplicationController
         end
         
         def show
-    
+            @spell = Spell.find(params[:id])
         end
         
         def new 
@@ -23,7 +23,7 @@ class SpellsController < ApplicationController
         end
         
         def edit 
-
+            @spell = Spell.find(params[:id])
         end 
         
         def create
@@ -33,13 +33,7 @@ class SpellsController < ApplicationController
         end
         
         def update
-             updated_spell = {
-                 id: @spell[:id],
-                 name: params[:name],
-                 description: params[:description],
-                 category: params[:category]
-             }
-             @@spells[@index] = updated_spell
+             @spell.update(spell_params)
              redirect_to spells_path
         end
         
@@ -52,11 +46,11 @@ class SpellsController < ApplicationController
         private 
     
         def set_spell
-            # @spell = Spell.find(params[:id])
+            @spell = Spell.find(params[:id])
         end
 
         def spell_params
-            params.permit(:name, :category, :description)
+            params.require(:spells).permit(:name, :category, :description, :id)
         end
 end  
  

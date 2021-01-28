@@ -2,7 +2,7 @@
 
     <h1> All the spells </h1>
     <section class="card-deck">
-    <%@spells.each do |spell|%>
+    <%@spells.sort.each do |spell|%>
         <div class="card <%=spell[:category]%>">
             <h5><%=spell[:name]%></h5>
             <p><%=spell[:description]%></p>
